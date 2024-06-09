@@ -4,10 +4,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import org.springframework.context.annotation.Profile;
 import com.financas.model.entity.Usuario;
 
 @SpringBootTest
+@Profile("test")
 public class UsuarioRepositoryTest {
     
     @Autowired
@@ -22,5 +23,17 @@ public class UsuarioRepositoryTest {
         boolean result = repository.existsByEmail("teste@gmail.com");
         //verificacao
         Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    public void deveRetornarFalsoQuandoNaoHouverEmail() {
+        //cenario
+        repository.deleteAll();
+
+        //acao
+        boolean result = repository.existsByEmail("teste@gmail.com");
+
+        //verificao
+        Assertions.assertThat(result).isFalse();
     }
 }

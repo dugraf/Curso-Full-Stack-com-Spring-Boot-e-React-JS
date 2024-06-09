@@ -14,11 +14,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "lancamento")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Lancamento {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
