@@ -1,13 +1,14 @@
-package com.financas.model.service.impl;
+package com.financas.service.impl;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.financas.exception.AutenticacaoException;
+import com.financas.exception.RegraNegocioException;
 import com.financas.model.entity.Usuario;
-import com.financas.model.entity.exception.AutenticacaoException;
-import com.financas.model.entity.exception.RegraNegocioException;
 import com.financas.model.repository.UsuarioRepository;
-import com.financas.model.service.UsuarioService;
+import com.financas.service.UsuarioService;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {

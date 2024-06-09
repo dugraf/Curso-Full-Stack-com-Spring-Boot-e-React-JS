@@ -1,4 +1,4 @@
-package com.financas.model.entity.exception;
+package com.financas.exception;
 
 public class RegraNegocioException extends RuntimeException{
     public RegraNegocioException(String msg) {

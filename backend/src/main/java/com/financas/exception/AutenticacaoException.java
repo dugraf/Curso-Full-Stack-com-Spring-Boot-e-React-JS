@@ -1,4 +1,4 @@
-package com.financas.model.entity.exception;
+package com.financas.exception;
 
 public class AutenticacaoException extends RuntimeException {
 

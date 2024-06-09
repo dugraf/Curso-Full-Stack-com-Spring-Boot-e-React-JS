@@ -1,4 +1,4 @@
-package com.financas.model.service;
+package com.financas.service;
 
 import com.financas.model.entity.Usuario;
 

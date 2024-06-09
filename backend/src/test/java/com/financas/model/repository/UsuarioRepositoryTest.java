@@ -17,7 +17,7 @@ public class UsuarioRepositoryTest {
     @Test
     public void verificarExistenciaEmail() {
         //cenario
-        Usuario usuario = new Usuario(null, "teste", "teste@gmail.com", "123");
+        Usuario usuario = new Usuario(null, "teste", "teste@gmail.com", "123", null);
         repository.save(usuario);
         //acao
         boolean result = repository.existsByEmail("teste@gmail.com");
