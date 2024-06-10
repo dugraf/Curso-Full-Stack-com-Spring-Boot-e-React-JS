@@ -2,6 +2,8 @@ package com.financas.service.impl;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -65,5 +67,10 @@ public class LancamentoServiceImpl implements LancamentoService {
             throw new RegraNegocioException("Informe um valor valido!");
         if(lancamento.getTipo() == null)
             throw new RegraNegocioException("Informe um tipo de lancamento!");
+    }
+
+    @Override
+    public Optional<Lancamento> obterPorId(Long id) {
+        return repository.findById(id);
     }
 }
