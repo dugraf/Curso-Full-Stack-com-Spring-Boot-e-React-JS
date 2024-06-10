@@ -21,4 +21,6 @@ public interface LancamentoService {
     void validar(Lancamento lancamento);
 
     Optional<Lancamento> obterPorId(Long id);
+
+    Double obterSaldoPorUsuario(Long id);
 }
