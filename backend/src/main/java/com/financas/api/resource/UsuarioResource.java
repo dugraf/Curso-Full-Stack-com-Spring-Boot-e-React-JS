@@ -60,4 +60,15 @@ public class UsuarioResource {
 		Double saldo = lancamentoService.obterSaldoPorUsuario(id);
 		return ResponseEntity.ok(saldo);
 	}
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id)
+    {
+        Optional<Usuario> usuario = service.obterPorId(id);
+
+        if(!usuario.isPresent())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.ok().body(usuario);
+    }
 }

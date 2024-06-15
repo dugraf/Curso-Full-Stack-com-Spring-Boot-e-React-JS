@@ -31,7 +31,7 @@ public class Lancamento {
     private LocalDate dataCadastro;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
     @Enumerated(value = EnumType.STRING)

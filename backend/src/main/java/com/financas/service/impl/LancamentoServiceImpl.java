@@ -77,8 +77,8 @@ public class LancamentoServiceImpl implements LancamentoService {
 
     @Override
     public Double obterSaldoPorUsuario(Long id) {
-        Double receitas = repository.obterSaldo(id, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO);
-        Double despesas = repository.obterSaldo(id, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO);
+        Double receitas = repository.obterSaldo(id/*, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO*/);
+        Double despesas = repository.obterSaldo(id/*, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO*/);
 
         if(receitas == null)
             receitas = 0.0;
