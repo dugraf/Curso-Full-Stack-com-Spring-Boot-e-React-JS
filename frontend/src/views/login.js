@@ -4,6 +4,16 @@ import FormGroup from '../components/form-group'
 
 class Login extends React.Component {
 
+    state = {
+        email: '',
+        senha: ''
+    }
+
+    entrar = () => {
+        console.log('Email: ', this.state.email)
+        console.log('Senha', this.state.senha)
+    }
+
     render() {
         return (
             <div className='container'>
@@ -16,6 +26,8 @@ class Login extends React.Component {
                                         <fieldset>
                                             <FormGroup label="Email: *" htmlFor="exampleInputEmail">
                                                 <input type="email"
+                                                value={this.state.email}
+                                                onChange={e => this.setState({email: e.target.value})}
                                                 className='form-control'
                                                 id="exampleInputEmail"
                                                 aria-describedby='emailHelp'
@@ -23,10 +35,14 @@ class Login extends React.Component {
                                             </FormGroup>
                                             <FormGroup label="Senha: *" htmlFor="exampleInputPassword">
                                                 <input type='password'
+                                                value={this.state.password}
+                                                onChange={e => this.setState({password: e.target.value})}
                                                 className='form-control'
                                                 id="exampleInputPassword"
                                                 placeholder='Digite a senha'></input>
                                             </FormGroup>
+                                            <button onClick={this.entrar} className='btn btn-success'>Entrar</button>
+                                            <button className='btn btn-danger'>Cadastrar</button>
                                         </fieldset>
                                     </div>
                                 </div>
