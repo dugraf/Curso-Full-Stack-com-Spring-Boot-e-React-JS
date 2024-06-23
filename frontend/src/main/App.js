@@ -4,13 +4,17 @@ import Login from '../views/login'
 import '../custom.css'
 import CadastroUsuario from "../views/cadastroUsuario";
 import Rotas from './rotas'
+import Navbar from '../components/narvbar'
 
 class App extends React.Component{
   render() {
     return(
-      <div>
+      <>
+      <Navbar />
+      <div className="container">
         <Rotas />
       </div>
+      </>
     )
   }
 }

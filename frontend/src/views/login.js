@@ -16,38 +16,36 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-md-6' style={{position : 'relative', left: '300px'}}>
-                        <div className='bs-docs-section'>
-                            <Card title="Login">
-                                <div className='col-lg-12'>
-                                    <div className='bs-component'>
-                                        <fieldset>
-                                            <FormGroup label="Email: *" htmlFor="exampleInputEmail">
-                                                <input type="email"
-                                                value={this.state.email}
-                                                onChange={e => this.setState({email: e.target.value})}
-                                                className='form-control'
-                                                id="exampleInputEmail"
-                                                aria-describedby='emailHelp'
-                                                placeholder='Digite o Email'></input>
-                                            </FormGroup>
-                                            <FormGroup label="Senha: *" htmlFor="exampleInputPassword">
-                                                <input type='password'
-                                                value={this.state.password}
-                                                onChange={e => this.setState({password: e.target.value})}
-                                                className='form-control'
-                                                id="exampleInputPassword"
-                                                placeholder='Digite a senha'></input>
-                                            </FormGroup>
-                                            <button onClick={this.entrar} className='btn btn-success'>Entrar</button>
-                                            <button className='btn btn-danger'>Cadastrar</button>
-                                        </fieldset>
-                                    </div>
+            <div className='row'>
+                <div className='col-md-6' style={{position : 'relative', left: '300px'}}>
+                    <div className='bs-docs-section'>
+                        <Card title="Login">
+                            <div className='col-lg-12'>
+                                <div className='bs-component'>
+                                    <fieldset>
+                                        <FormGroup label="Email: *" htmlFor="exampleInputEmail">
+                                            <input type="email"
+                                            value={this.state.email}
+                                            onChange={e => this.setState({email: e.target.value})}
+                                            className='form-control'
+                                            id="exampleInputEmail"
+                                            aria-describedby='emailHelp'
+                                            placeholder='Digite o Email'></input>
+                                        </FormGroup>
+                                        <FormGroup label="Senha: *" htmlFor="exampleInputPassword">
+                                            <input type='password'
+                                            value={this.state.password}
+                                            onChange={e => this.setState({password: e.target.value})}
+                                            className='form-control'
+                                            id="exampleInputPassword"
+                                            placeholder='Digite a senha'></input>
+                                        </FormGroup>
+                                        <button onClick={this.entrar} className='btn btn-success'>Entrar</button>
+                                        <button className='btn btn-danger'>Cadastrar</button>
+                                    </fieldset>
                                 </div>
-                            </Card>
-                        </div>
+                            </div>
+                        </Card>
                     </div>
                 </div>
             </div>
