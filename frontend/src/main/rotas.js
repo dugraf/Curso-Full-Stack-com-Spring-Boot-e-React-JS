@@ -3,15 +3,15 @@ import React from 'react'
 import Login from '../views/login'
 import CadastroUsuario from '../views/cadastroUsuario'
 
-import {Routes, Route, Switch, HashRouter} from 'react-router-dom'
+import {Route, Switch, HashRouter} from 'react-router-dom'
 
 function Rotas(){
     return (
         <HashRouter>
-            <Routes>
-                <Route exact path="/login" element={<Login/>}/>
-                <Route exact path="/cadastro-usuarios" element={<CadastroUsuario/>}/>
-            </Routes>
+            <Switch>
+                <Route path="/login" component={Login} />
+                <Route path="/cadastro-usuarios" component={CadastroUsuario} />
+            </Switch>
         </HashRouter>
     )
 }
