@@ -3,6 +3,8 @@ import React from "react";
 import Card from "../components/card";
 import FormGroup from "../components/form-group";
 
+import { withRouter } from "react-router-dom";
+
 class CadastroUsuario extends React.Component{
 
     state = {
@@ -14,6 +16,10 @@ class CadastroUsuario extends React.Component{
 
     cadastrar = () => {
         console.log(this.state)
+    }
+
+    cancelar = () => {
+        this.props.history.push('/login')
     }
 
     render(){
@@ -60,4 +66,4 @@ class CadastroUsuario extends React.Component{
     }
 }
 
-export default CadastroUsuario
+export default withRouter(CadastroUsuario)
