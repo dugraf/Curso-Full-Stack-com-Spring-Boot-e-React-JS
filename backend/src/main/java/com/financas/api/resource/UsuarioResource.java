@@ -50,16 +50,16 @@ public class UsuarioResource {
         }
     }
 
-	@GetMapping("{id}/saldo")
-	public ResponseEntity<?> obterSaldo(@PathVariable("id") Long id) {
-		Optional<Usuario> usuario = service.obterPorId(id);
+	// @GetMapping("{id}/saldo")
+	// public ResponseEntity<?> obterSaldo(@PathVariable("id") Long id) {
+	// 	Optional<Usuario> usuario = service.obterPorId(id);
 		
-		if(!usuario.isPresent())
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	// 	if(!usuario.isPresent())
+	// 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
-		Double saldo = lancamentoService.obterSaldoPorUsuario(id);
-		return ResponseEntity.ok(saldo);
-	}
+	// 	Double saldo = lancamentoService.obterSaldoPorUsuario(id);
+	// 	return ResponseEntity.ok(saldo);
+	// }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id)

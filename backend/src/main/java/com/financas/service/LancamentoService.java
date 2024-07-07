@@ -22,5 +22,5 @@ public interface LancamentoService {
 
     Optional<Lancamento> obterPorId(Long id);
 
-    Double obterSaldoPorUsuario(Long id);
+    // Double obterSaldoPorUsuario(Long id);
 }

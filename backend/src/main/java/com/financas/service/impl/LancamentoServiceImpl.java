@@ -75,16 +75,16 @@ public class LancamentoServiceImpl implements LancamentoService {
         return repository.findById(id);
     }
 
-    @Override
-    public Double obterSaldoPorUsuario(Long id) {
-        Double receitas = repository.obterSaldo(id/*, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO*/);
-        Double despesas = repository.obterSaldo(id/*, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO*/);
+    // @Override
+    // public Double obterSaldoPorUsuario(Long id) {
+    //     Double receitas = repository.obterSaldo(id/*, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO*/);
+    //     Double despesas = repository.obterSaldo(id/*, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO*/);
 
-        if(receitas == null)
-            receitas = 0.0;
-        if(despesas == null)
-            despesas = 0.0;
+    //     if(receitas == null)
+    //         receitas = 0.0;
+    //     if(despesas == null)
+    //         despesas = 0.0;
         
-        return (receitas - despesas);
-    }
+    //     return (receitas - despesas);
+    // }
 }

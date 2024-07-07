@@ -8,7 +8,7 @@ import com.financas.model.entity.enums.StatusLancamento;
 import com.financas.model.entity.enums.TipoLancamento;
 
 public interface LancamentoRepository extends JpaRepository<Lancamento, Long> {
-    @Query("select sum(l.valor) from Lancamento l" + "where l.usuario.id = :idUsuario")
-    Double obterSaldo(@Param("idUsuario") Long idUsuario);
+    // @Query("select sum(l.valor) from Lancamento l" + "where l.usuario.id = :idUsuario")
+    // Double obterSaldo(@Param("idUsuario") Long idUsuario);
     
 }
