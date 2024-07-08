@@ -1,5 +1,6 @@
 package com.financas.model.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import com.financas.model.entity.enums.StatusLancamento;
 import com.financas.model.entity.enums.TipoLancamento;
@@ -27,7 +28,7 @@ public class Lancamento {
     private Long id;
     private String descricao;
     private Integer mes, ano;
-    private Double valor;
+    private BigDecimal valor;
     private LocalDate dataCadastro;
 
     @ManyToOne

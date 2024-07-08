@@ -1,5 +1,6 @@
 package com.financas.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,7 @@ import com.financas.model.entity.enums.StatusLancamento;
 import com.financas.model.entity.enums.TipoLancamento;
 import com.financas.model.repository.LancamentoRepository;
 import com.financas.service.LancamentoService;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class LancamentoServiceImpl implements LancamentoService {
@@ -64,8 +66,8 @@ public class LancamentoServiceImpl implements LancamentoService {
             throw new RegraNegocioException("Informe um ano valido!");
         if(lancamento.getUsuario() == null || lancamento.getUsuario().getId() == null)
             throw new RegraNegocioException("Informe um usuario!");
-        if(lancamento.getValor() == null || lancamento.getValor() < 0)
-            throw new RegraNegocioException("Informe um valor valido!");
+        if(lancamento.getValor() == null || lancamento.getValor().compareTo(BigDecimal.ZERO) < 1 )
+            throw new RegraNegocioException("Informe um Valor válido.");
         if(lancamento.getTipo() == null)
             throw new RegraNegocioException("Informe um tipo de lancamento!");
     }
@@ -75,16 +77,21 @@ public class LancamentoServiceImpl implements LancamentoService {
         return repository.findById(id);
     }
 
-    // @Override
-    // public Double obterSaldoPorUsuario(Long id) {
-    //     Double receitas = repository.obterSaldo(id/*, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO*/);
-    //     Double despesas = repository.obterSaldo(id/*, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO*/);
-
-    //     if(receitas == null)
-    //         receitas = 0.0;
-    //     if(despesas == null)
-    //         despesas = 0.0;
-        
-    //     return (receitas - despesas);
-    // }
+	@Override
+	@Transactional(readOnly = true)
+	public BigDecimal obterSaldoPorUsuario(Long id) {
+		
+		BigDecimal receitas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.RECEITA, StatusLancamento.EFETIVADO);
+		BigDecimal despesas = repository.obterSaldoPorTipoLancamentoEUsuarioEStatus(id, TipoLancamento.DESPESA, StatusLancamento.EFETIVADO);
+		
+		if(receitas == null) {
+			receitas = BigDecimal.ZERO;
+		}
+		
+		if(despesas == null) {
+			despesas = BigDecimal.ZERO;
+		}
+		
+		return receitas.subtract(despesas);
+	}
 }

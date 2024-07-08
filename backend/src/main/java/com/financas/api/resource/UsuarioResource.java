@@ -7,6 +7,7 @@ import com.financas.exception.RegraNegocioException;
 import com.financas.model.entity.Usuario;
 import com.financas.service.LancamentoService;
 import com.financas.service.UsuarioService;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,16 +51,16 @@ public class UsuarioResource {
         }
     }
 
-	// @GetMapping("{id}/saldo")
-	// public ResponseEntity<?> obterSaldo(@PathVariable("id") Long id) {
-	// 	Optional<Usuario> usuario = service.obterPorId(id);
+	@GetMapping("{id}/saldo")
+	public ResponseEntity obterSaldo( @PathVariable("id") Long id ) {
+		Optional<Usuario> usuario = service.obterPorId(id);
 		
-	// 	if(!usuario.isPresent())
-	// 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		
-	// 	Double saldo = lancamentoService.obterSaldoPorUsuario(id);
-	// 	return ResponseEntity.ok(saldo);
-	// }
+		if(!usuario.isPresent()) {
+			return new ResponseEntity( HttpStatus.NOT_FOUND );
+		}
+		BigDecimal saldo = lancamentoService.obterSaldoPorUsuario(id);
+		return ResponseEntity.ok(saldo);
+	}
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id)
