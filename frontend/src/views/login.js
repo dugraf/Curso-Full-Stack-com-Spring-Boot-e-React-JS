@@ -4,6 +4,7 @@ import FormGroup from '../components/form-group'
 import {withRouter} from 'react-router-dom'
 import UsuarioService from '../app/service/usuarioService'
 import LocalStorageService from '../app/service/localStorageService'
+import { mensagemErro } from '../components/toastr' 
 
 class Login extends React.Component {
 
@@ -26,7 +27,7 @@ class Login extends React.Component {
             LocalStorageService.addItem('_usuario_logado', response.data)
             this.props.history.push('/home')
         }).catch(erro => {
-            this.setState({mensagemErro: erro.response.data})
+            mensagemErro(erro.response.data)
         })
     }
 
