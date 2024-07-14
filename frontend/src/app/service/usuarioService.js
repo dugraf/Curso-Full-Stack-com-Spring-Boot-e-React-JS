@@ -2,15 +2,19 @@ import ApiService from "../apiService";
 
 class UsuarioService extends ApiService {
     constructor(){
-        super('/api/usuarios')
+        super('/api/usuarios');
     }
 
     autenticar(credenciais) {
-        return this.post('/autenticar', credenciais)
+        return this.post('/autenticar', credenciais);
     }
 
     obterSaldoPorUsuario(id) {
-        return this.get(`/${id}/saldo`)
+        return this.get(`/${id}/saldo`);
+    }
+
+    salvar(usuario) {
+        return this.post('/cadastro', usuario); // Ajuste feito para /cadastro
     }
 }
 
