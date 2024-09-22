@@ -59,7 +59,7 @@ class CadastroUsuario extends React.Component{
                 mensagemSucesso('Usuário cadastrado com sucesso! Faça o login para acessar o sistema.')
                 this.props.history.push('/login')
             }).catch(error => {
-                mensagemErro(error.response.data)
+                mensagemErro(error.response)
             })
     }
 

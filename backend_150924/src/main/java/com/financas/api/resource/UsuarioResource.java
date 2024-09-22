@@ -1,6 +1,6 @@
 package com.financas.api.resource;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.financas.api.dto.UsuarioDTO;
 import com.financas.exception.AutenticacaoException;
 import com.financas.exception.RegraNegocioException;
@@ -13,12 +13,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -40,37 +34,44 @@ public class UsuarioResource {
         }
     }
     
-    @PostMapping
+    @PostMapping("/cadastro") // endpoint ajustado para /cadastro
     public ResponseEntity<?> salvar(@RequestBody UsuarioDTO dto) {
         Usuario usuario = new Usuario(null, dto.getNome(), dto.getEmail(), dto.getSenha(), LocalDate.now());
 
         try {
             Usuario usuarioSalvo = service.salvar(usuario);
-            return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.CREATED);
+            return new ResponseEntity<>(usuarioSalvo, HttpStatus.CREATED);
         } catch(RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-	@GetMapping("{id}/saldo")
-	public ResponseEntity obterSaldo( @PathVariable("id") Long id ) {
-		Optional<Usuario> usuario = service.obterPorId(id);
-		
-		if(!usuario.isPresent()) {
-			return new ResponseEntity( HttpStatus.NOT_FOUND );
-		}
-		BigDecimal saldo = lancamentoService.obterSaldoPorUsuario(id);
-		return ResponseEntity.ok(saldo);
-	}
+    @GetMapping("/{id}/saldo")
+    public ResponseEntity<?> obterSaldo(@PathVariable("id") Long id) {
+        Optional<Usuario> usuario = service.obterPorId(id);
+        
+        if (!usuario.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        BigDecimal saldo = lancamentoService.obterSaldoPorUsuario(id);
+        return ResponseEntity.ok(saldo);
+    }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id)
-    {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id) {
         Optional<Usuario> usuario = service.obterPorId(id);
 
-        if(!usuario.isPresent())
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (!usuario.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
 
-        return ResponseEntity.ok().body(usuario);
+        return ResponseEntity.ok(usuario);
     }
+
+    // // Método para lidar com OPTIONS /api/usuarios/
+    // @RequestMapping(value = "/", method = RequestMethod.OPTIONS)
+    // public ResponseEntity<?> options() {
+    //     return ResponseEntity.ok().build();
+    // }
 }

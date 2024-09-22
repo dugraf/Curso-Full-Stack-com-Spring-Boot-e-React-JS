@@ -27,7 +27,7 @@ class Login extends React.Component {
             LocalStorageService.addItem('_usuario_logado', response.data)
             this.props.history.push('/home')
         }).catch(erro => {
-            mensagemErro(erro.response.data)
+            mensagemErro(erro.response)
         })
     }
 
