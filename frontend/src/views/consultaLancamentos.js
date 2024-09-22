@@ -6,7 +6,7 @@ import SelectMenu from "../components/selectMenu";
 
 class ConsultaLancamentos extends React.Component {
     render() {
-        const lista = [
+        const meses = [
             {label: 'Selecione...', value: ''},
             {label: 'Janeiro', value: 1},
             {label: 'Fevereiro', value: 2},
@@ -21,6 +21,12 @@ class ConsultaLancamentos extends React.Component {
             {label: 'Novembro', value: 11},
             {label: 'Dezembro', value: 12},
         ]
+
+        const tipos = [
+            {label: 'Selecione...', value: ''},
+            {label: 'Despesa', value: 'DESPESA'},
+            {label: 'Receita', value: 'RECEITA'},
+        ]
         return (
             <Card title = "Consulta Lançamentos">
                 <div className="row">
@@ -28,14 +34,17 @@ class ConsultaLancamentos extends React.Component {
                         <div className="bs-component">
                             <FormGroup htmlFor="inputAno" label="Ano: *">
                                 <input  type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         id="inputAno"
                                         aria-describedby="emailHelp"
                                         placeholder="Digite o Ano">
                                 </input>
                             </FormGroup>
                             <FormGroup htmlFor="inputMes" label="Mês: ">
-                                <SelectMenu className="form-control" lista={lista} />
+                                <SelectMenu id="inputMes" className="form-control" lista={meses} />
+                            </FormGroup>
+                            <FormGroup htmlFor="inputTipo" label="Tipo Lançamento: ">
+                                <SelectMenu id="inputTipo" className="form-control" lista={tipos} />
                             </FormGroup>
                         </div>
                     </div>
