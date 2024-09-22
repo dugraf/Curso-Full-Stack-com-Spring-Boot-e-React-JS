@@ -16,9 +16,12 @@ class LancamentoService extends ApiService {
             params += `&tipo=${lancamentoFiltro.tipo}` 
 
         if(lancamentoFiltro.status)                     //NAO OBRIGATORIO
-            params += `&status=${lancamentoFiltro.status}` 
+            params += `&status=${lancamentoFiltro.status}`
 
-        return this.get('/', credenciais)
+        //if(lancamentoFiltro.usuario)
+        params += `&usuario=${lancamentoFiltro.usuario}`
+
+        return this.get(params)
     }
 }
 
