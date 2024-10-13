@@ -1,0 +1,90 @@
+{
+    "descricao": "Mensalidade Academia",
+    "mes": "1",
+    "ano": "2024",
+    "valor": "1200",
+    "usuario": "2",
+    "tipo": "RECEITA",
+    "status": "EFETIVADO"
+}
+{
+    "descricao": "Compra de Suplementos",
+    "mes": "2",
+    "ano": "2024",
+    "valor": "500",
+    "usuario": "2",
+    "tipo": "DESPESA",
+    "status": "PENDENTE"
+}
+{
+    "descricao": "Mensalidade Academia",
+    "mes": "3",
+    "ano": "2024",
+    "valor": "1200",
+    "usuario": "2",
+    "tipo": "RECEITA",
+    "status": "PENDENTE"
+}
+{
+    "descricao": "Manutenção Equipamentos",
+    "mes": "4",
+    "ano": "2024",
+    "valor": "800",
+    "usuario": "2",
+    "tipo": "DESPESA",
+    "status": "EFETIVADO"
+}
+{
+    "descricao": "Mensalidade Academia",
+    "mes": "5",
+    "ano": "2024",
+    "valor": "1200",
+    "usuario": "2",
+    "tipo": "RECEITA",
+    "status": "CANCELADO"
+}
+{
+    "descricao": "Treinamento de Instrutores",
+    "mes": "6",
+    "ano": "2024",
+    "valor": "1500",
+    "usuario": "2",
+    "tipo": "DESPESA",
+    "status": "PENDENTE"
+}
+{
+    "descricao": "Mensalidade Academia",
+    "mes": "7",
+    "ano": "2024",
+    "valor": "1200",
+    "usuario": "2",
+    "tipo": "RECEITA",
+    "status": "EFETIVADO"
+}
+{
+    "descricao": "Compra de Pesos Novos",
+    "mes": "8",
+    "ano": "2024",
+    "valor": "900",
+    "usuario": "2",
+    "tipo": "DESPESA",
+    "status": "EFETIVADO"
+}
+{
+    "descricao": "Mensalidade Academia",
+    "mes": "9",
+    "ano": "2024",
+    "valor": "1200",
+    "usuario": "2",
+    "tipo": "RECEITA",
+    "status": "PENDENTE"
+}
+{
+    "descricao": "Campanha de Marketing",
+    "mes": "10",
+    "ano": "2024",
+    "valor": "2000",
+    "usuario": "2",
+    "tipo": "DESPESA",
+    "status": "PENDENTE"
+}
